@@ -10,9 +10,11 @@
     gap: 14px;
     padding: 10px 15px;
     border-radius: 25px;
-    background-color: #835900;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    background: rgba(109, 74, 0, 0.904);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 }
 
 .navbar-link    {

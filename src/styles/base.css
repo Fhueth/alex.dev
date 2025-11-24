@@ -9,6 +9,7 @@ body    {
     display: grid;
     justify-items: center;
     background-color: #F5EEDC;
+    padding-bottom: 200px;
 }
 main {
     margin-top: 150px;
@@ -35,6 +36,7 @@ strong  {
     align-items: center;
     gap: 100px;
 }
+
 #tecnologias {
     flex-direction: column;
     justify-content: start;
@@ -59,6 +61,12 @@ strong  {
             font-weight: 600;
         }
     }
+}
+#projects {
+    flex-direction: column;
+    justify-content: start;
+    gap: 48px;
+    max-width: 70%;
 }
 .presentation {
     margin: 24px 0 0 0;
@@ -100,8 +108,13 @@ a {
     gap: 6px;
     font-size: 16px;
     color: #ffffff;
+    transform: scale(1);
+    transition: transform .2s ease;
 }
-h2, h3 {
+.link:hover {
+    transform: scale(1.1);
+}
+h2, h3, h4 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     font-size: 64px;
@@ -111,4 +124,25 @@ h2, h3 {
 }
 h3  {
     font-size: 48px;
+}
+h4 {
+    font-size: 32px;
+}
+.project-container {
+    place-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: #f1e1b7;
+    padding: 30px 40px;
+    border-radius: 20px;
+    border: solid 2px #835a0086;
+    max-width: min-content;
+    &>img {
+        width: 350px;
+        border: solid 2px #ffbe3196;
+        border-radius: 10px;
+    }
 }
