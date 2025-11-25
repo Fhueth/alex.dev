@@ -1,3 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const projects: CollectionEntry<'projects'>[] = await getCollection('projects');;
+
+---
+
 <div id="projects" class="container">
     <h3>
         <svg xmlns="http://www.w3.org/2000/svg" width="64" height="56" viewBox="0 0 576 512">
@@ -6,20 +14,34 @@
         Proyectos
     </h3>
     <section>
-        <article class="project-container">
-            <img src="/alex.dev/images/sportsmanager.png" alt="Proyecto SportsManager">
-            <div class="presentation">
-                <h4>SportsManager</h4>
-                <p>Aplicación web para facilitar la gestión de ligas escolares deportivas</p>
-                <div class="links-container">
-                    <a class="link" href="https://gitlab.com/serna.melgar.victor.rafael/p1_2526_gr3_sportmanager">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                            <path fill="#ffffff" stroke="#ffffff" stroke-linejoin="round" stroke-width="4" d="M23.963 42L42 27.415L36.996 6l-6.03 12.994H17.993L11.015 6L6 27.415z"/>
-                        </svg>
-                        Ver código
-                    </a>
-                </div>
-            </div>
-        </article>
+        {
+            projects.map((project) => {
+
+                const { title, description, img, buttons } = project.data;
+
+                return (
+                    <article class="project-container">
+                        <img src={img} alt={title}>
+                        <div class="presentation">
+                            <h4>{title}</h4>
+                            <p>{description}</p>
+                            <div class="links-container">
+                                {
+                                    buttons.map(button => {
+                                        const { label, url, svg, alt } = button;
+                                        return (
+                                            <a class="link" href={url}>
+                                                <img src={svg} alt={label}>
+                                                {alt}
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </article>
+                )
+            })
+        }
     </section>
 </div>
